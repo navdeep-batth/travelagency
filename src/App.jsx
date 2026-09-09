@@ -1,32 +1,27 @@
-
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import App from './App.css'
+// ध्यान दें: यहाँ BrowserRouter की जगह HashRouter को इम्पोर्ट किया गया है
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from './Home'
 import About from './About'
 import Destination from './Destination'
 import Portfolios from './Portfolios'
 import Contact from './Contact'
-// import Testingpage from './Testingpage'
 
 function App() {
-  
-
   return (
     <>
-        <Router basename="/travelagency">
-          {/* <div> */}
+        {/* HashRouter में basename="/travelagency" लिखने की कोई ज़रूरत नहीं होती */}
+        <Router>
             <Routes>
-              <Route exact path='/' element={<Home/>} ></Route>  
-              <Route exact path='/about' element={<About/>}></Route>
-              <Route exact path='/destination' element={<Destination/>}></Route>
-              <Route exact path='/portfolios' element={<Portfolios/>}></Route>
-              <Route exact path='/contact' element={<Contact/>}></Route> 
-              {/* <Route exact path='/contact' element={<Contact/>}></Route> */}
-
+              <Route path='/' element={<Home />} />  
+              <Route path='/about' element={<About />} />
+              <Route path='/destination' element={<Destination />} />
+              <Route path='/portfolios' element={<Portfolios />} />
+              <Route path='/contact' element={<Contact />} /> 
+              {/* अगर कोई गलत यूआरएल टाइप करे, तो वो वापस होम पेज पर आ जाए */}
+              <Route path='*' element={<Home />} />
             </Routes>
-          {/* </div> */}
         </Router> 
     </>
   )
