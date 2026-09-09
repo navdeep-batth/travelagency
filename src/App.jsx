@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-        <Router>
+        <Router basename="/travelagency">
           {/* <div> */}
             <Routes>
               <Route exact path='/' element={<Home/>} ></Route>  
